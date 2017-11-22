@@ -14,4 +14,6 @@ palindrome = str => {
   return [...str].every(char => char === arr.pop());
 };
 
+palindrome = str => [...str].every((char, i) => char === str[str.length - i - 1]);
+
 module.exports = palindrome;
