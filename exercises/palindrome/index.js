@@ -16,4 +16,12 @@ palindrome = str => {
 
 palindrome = str => [...str].every((char, i) => char === str[str.length - i - 1]);
 
+palindrome = str => {
+  let isPalindrome = true;
+  for (let i = 0, j = str.length - 1; i < j; i++, j--) {
+    if (str[i] !== str[j]) isPalindrome = false;
+  }
+  return isPalindrome;
+};
+
 module.exports = palindrome;
