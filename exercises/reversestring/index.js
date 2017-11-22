@@ -24,4 +24,6 @@ reverse = str => {
   return reverseStr;
 };
 
+reverse = str => [...str].reduce((reversed, char) => char + reversed, '');
+
 module.exports = reverse;
