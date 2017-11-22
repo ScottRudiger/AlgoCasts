@@ -9,7 +9,11 @@
 //   reverseInt(-90) === -9
 
 const reverseInt = n => {
-
+  const nArr = [...`${n}`];
+  const neg = n < 0 ? nArr.shift() : '';
+  return +`${neg + nArr.reverse().join``}`;
 };
+
+console.log(reverseInt(-5));
 
 module.exports = reverseInt;
