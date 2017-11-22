@@ -9,4 +9,9 @@
 
 palindrome = str => [...str].reverse().join`` === str;
 
+palindrome = str => {
+  const arr = [...str];
+  return [...str].every(char => char === arr.pop());
+};
+
 module.exports = palindrome;
