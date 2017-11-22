@@ -16,6 +16,7 @@ palindrome = str => {
 
 palindrome = str => [...str].every((char, i) => char === str[str.length - i - 1]);
 
+// for a more efficient solution: (https://jsperf.com/palindrome-speed)
 palindrome = str => {
   let isPalindrome = true;
   for (let i = 0, j = str.length - 1; i < j; i++, j--) {
