@@ -16,4 +16,12 @@ reverse = str => {
   return reverseStr;
 };
 
+reverse = str => {
+  let reverseStr = '';
+  for (let char of str) {
+    reverseStr = char + reverseStr;
+  }
+  return reverseStr;
+};
+
 module.exports = reverse;
