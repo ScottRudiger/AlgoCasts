@@ -13,7 +13,15 @@
 //   buzz
 
 const fizzBuzz = n => {
-
+  for (i = 1; i <= n; i++) {
+    let result = '';
+    if (!(i % 3)) result += 'fizz';
+    if (!(i % 5)) result += 'buzz';
+    if (i % 3 && i % 5) result += i;
+    console.log(result);
+  }
 };
+
+fizzBuzz(15);
 
 module.exports = fizzBuzz;
