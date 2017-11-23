@@ -7,7 +7,7 @@
 
 const maxChar = str => {
   const counts = [...str].reduce((counts, char) => (
-    counts[char] ? counts[char]++ : counts[char] = 1,
+    counts[char] = counts[char] + 1 || 1,
     counts
   ), {});
   let maxC, maxN = 0;
