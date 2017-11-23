@@ -12,6 +12,8 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+const fizzBuzz = n => {
+
+};
 
 module.exports = fizzBuzz;
