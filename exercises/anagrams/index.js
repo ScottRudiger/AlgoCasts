@@ -11,7 +11,14 @@
 const anagrams = (stringA, stringB) => {
   const getChars = string => string.toLowerCase().match(/\w/g);
   const a = getChars(stringA), b = getChars(stringB);
-  const countChars = string =>
+  const countChars = string => Object.entries(
+    [...string].reduce((counts, char) => {
+      counts[char] = counts[char] + 1 || 1;
+      return counts;
+    }, {})
+  );
+  const sameCounts = countChars(a).every(count => JSON.stringify(countChars(b)).includes(JSON.stringify(count)));
+  return sameCounts && a.length === b.length;
 };
 
 module.exports = anagrams;
