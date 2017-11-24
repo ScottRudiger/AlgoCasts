@@ -8,11 +8,24 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-const chunk = (array, size) => {
+chunk = (array, size) => {
   const chunked = [];
   while (array.length) {
     chunked.push(array.splice(0, size));
   }
+  return chunked;
+};
+
+chunk = (array, size) => {
+  const chunked = [];
+  array.forEach((el, i) => {
+    const last = chunked[chunked.length - 1];
+    if (last) {
+      last.length === size ? chunked.push([el]) : last.push(el);
+    } else {
+      chunked.push([el]);
+    }
+  });
   return chunked;
 };
 
