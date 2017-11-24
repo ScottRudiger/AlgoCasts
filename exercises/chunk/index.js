@@ -9,7 +9,11 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 const chunk = (array, size) => {
-
+  const chunked = [];
+  while (array.length) {
+    chunked.push(array.splice(0, size));
+  }
+  return chunked;
 };
 
 module.exports = chunk;
