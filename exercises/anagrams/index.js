@@ -8,14 +8,17 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+
+const getChars = string => string.toLowerCase().match(/\w/g);
+
+const countChars = string => Object.entries(
+  [...string].reduce((counts, char) => {
+    counts[char] = counts[char] + 1 || 1;
+    return counts;
+  }, {})
+);
+
 const anagrams = (stringA, stringB) => {
-  const getChars = string => string.toLowerCase().match(/\w/g);
-  const countChars = string => Object.entries(
-    [...string].reduce((counts, char) => {
-      counts[char] = counts[char] + 1 || 1;
-      return counts;
-    }, {})
-  );
   const a = JSON.stringify(countChars(getChars(stringA)));
   const b = JSON.stringify(countChars(getChars(stringB)));
   const sameCounts = JSON.parse(a).every(count => b.includes(JSON.stringify(count)));
