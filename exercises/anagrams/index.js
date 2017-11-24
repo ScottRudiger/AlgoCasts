@@ -9,7 +9,9 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 const anagrams = (stringA, stringB) => {
-
+  const getChars = string => string.toLowerCase().match(/\w/g);
+  const a = getChars(stringA), b = getChars(stringB);
+  const countChars = string =>
 };
 
 module.exports = anagrams;
