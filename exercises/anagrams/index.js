@@ -10,14 +10,15 @@
 
 const anagrams = (stringA, stringB) => {
   const getChars = string => string.toLowerCase().match(/\w/g);
-  const a = getChars(stringA), b = getChars(stringB);
   const countChars = string => Object.entries(
     [...string].reduce((counts, char) => {
       counts[char] = counts[char] + 1 || 1;
       return counts;
     }, {})
   );
-  const sameCounts = countChars(a).every(count => JSON.stringify(countChars(b)).includes(JSON.stringify(count)));
+  const a = JSON.stringify(countChars(getChars(stringA)));
+  const b = JSON.stringify(countChars(getChars(stringB)));
+  const sameCounts = JSON.parse(a).every(count => b.includes(JSON.stringify(count)));
   return sameCounts && a.length === b.length;
 };
 
