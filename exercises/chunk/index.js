@@ -18,7 +18,7 @@ chunk = (array, size) => {
 
 chunk = (array, size) => {
   const chunked = [];
-  array.forEach((el, i) => {
+  array.forEach(el => {
     const last = chunked[chunked.length - 1];
     if (last) {
       last.length === size ? chunked.push([el]) : last.push(el);
