@@ -17,6 +17,15 @@ chunk = (array, size) => {
 };
 
 chunk = (array, size) => {
+  const copy = [...array];
+  const chunked = [];
+  while (copy.length) {
+    chunked.push(copy.splice(0, size));
+  }
+  return chunked;
+};
+
+chunk = (array, size) => {
   const chunked = [];
   array.forEach(el => {
     const last = chunked[chunked.length - 1];
