@@ -21,8 +21,9 @@ const countChars = string => Object.entries(
 const anagrams = (stringA, stringB) => {
   const a = JSON.stringify(countChars(getChars(stringA)));
   const b = JSON.stringify(countChars(getChars(stringB)));
-  const sameCounts = JSON.parse(a).every(count => b.includes(JSON.stringify(count)));
-  return sameCounts && a.length === b.length;
+  // could optimize further by checking for equal length after call to getChars
+  if (a.length !== b.length) return false;
+  return JSON.parse(a).every(count => b.includes(JSON.stringify(count)));
 };
 
 module.exports = anagrams;
