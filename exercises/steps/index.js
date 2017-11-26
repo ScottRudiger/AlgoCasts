@@ -42,4 +42,10 @@ steps = n => {
   }
 };
 
+steps = (n, i = 1) => {
+  const step = '#'.repeat(i).padEnd(n);
+  console.log(step);
+  if (i < n) steps(n, i + 1);
+};
+
 module.exports = steps;
