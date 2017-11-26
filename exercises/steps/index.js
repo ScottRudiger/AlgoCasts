@@ -17,9 +17,16 @@
 //       '### '
 //       '####'
 
-const steps = n => {
+steps = n => {
   for (let i = 1; i <= n; i++) {
     const step = '#'.repeat(i).padEnd(n);
+    console.log(step);
+  }
+};
+
+steps = n => {
+  for (let i = 1; i <=n; i++) {
+    const step = '#'.repeat(i) + ' '.repeat(n - i);
     console.log(step);
   }
 };
