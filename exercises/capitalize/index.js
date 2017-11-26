@@ -11,4 +11,14 @@ capitalize = str => str.split` `.map(word => word[0].toUpperCase() + word.slice(
 
 capitalize = str => str.replace(/(^\w|\s\w)/g, match => match.toUpperCase());
 
+capitalize = str => {
+  let result = '';
+  [...str].forEach((char, i) => {
+    !str[i - 1] || str[i - 1] === ' '
+    ? result += char.toUpperCase()
+    : result += char;
+  });
+  return result;
+};
+
 module.exports = capitalize;
