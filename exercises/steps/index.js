@@ -48,4 +48,14 @@ steps = (n, i = 1) => {
   if (i < n) steps(n, i + 1);
 };
 
+steps = (n, i = 0, step = '') => {
+  if (i === n) return;
+  if (step.length === n) {
+    console.log(step);
+    return steps(n, i + 1);
+  }
+  step += step.length <= i ? '#' : ' ';
+  steps(n, i, step);
+};
+
 module.exports = steps;
