@@ -18,7 +18,10 @@
 //       '####'
 
 const steps = n => {
-
+  for (let i = 1; i <= n; i++) {
+    const step = '#'.repeat(i).padEnd(n);
+    console.log(step);
+  }
 };
 
 module.exports = steps;
