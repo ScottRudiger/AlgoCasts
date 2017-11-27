@@ -14,6 +14,8 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+const pyramid = n => {
+
+};
 
 module.exports = pyramid;
