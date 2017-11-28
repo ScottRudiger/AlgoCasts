@@ -23,4 +23,9 @@ vowels = str => {
 
 vowels = str => (str.match(/[aeiou]/gi) || '').length;
 
+vowels = str => {
+  const matches = str.match(/[aeiou]/gi);
+  return matches ? matches.length : 0;
+};
+
 module.exports = vowels;
