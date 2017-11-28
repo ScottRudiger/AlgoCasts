@@ -7,6 +7,8 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-const vowels = str => (str.toLowerCase().match(/a|e|i|o|u/g) || '').length;
+vowels = str => (str.toLowerCase().match(/a|e|i|o|u/g) || '').length;
+
+vowels = str => [...str].filter(l => 'aeiou'.includes(l.toLowerCase())).length;
 
 module.exports = vowels;
