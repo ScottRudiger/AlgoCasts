@@ -49,4 +49,34 @@ matrix = n => {
   return board;
 };
 
+matrix = n => {
+  const spiral = Array.from({ length: n }, () => Array(n));
+  let startCol = startRow = 0;
+  let endCol = endRow = n - 1;
+  let value = 1;
+  while (startCol <= endCol && startRow <=endRow) {
+    for (let i = startCol; i <= endCol; i++) {
+      spiral[startRow][i] = value;
+      value++;
+    }
+    startRow++;
+    for (let i = startRow; i <= endRow; i++) {
+      spiral[i][endCol] = value;
+      value++;
+    }
+    endCol--;
+    for (let i = endCol; i >= startCol; i--) {
+      spiral[endRow][i] = value;
+      value++;
+    }
+    endRow--;
+    for (let i = endRow; i >= startRow; i--) {
+      spiral[i][startCol] = value;
+      value++;
+    }
+    startCol++;
+  }
+  return spiral;
+};
+
 module.exports = matrix;
