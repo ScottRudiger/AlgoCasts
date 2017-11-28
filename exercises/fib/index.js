@@ -9,7 +9,11 @@
 //   fib(4) === 3
 
 const fib = n => {
-
+  const seq = [0, 1];
+  while (seq.length !== n + 1) {
+    seq.push(seq[seq.length - 1] + seq[seq.length - 2]);
+  }
+  return seq[seq.length - 1];
 };
 
 module.exports = fib;
