@@ -19,9 +19,24 @@
 //       ' ##### '
 //       '#######'
 
-const pyramid = n => {
+pyramid = n => {
   for (let i = 1, j = n; i <= (n + 2), j > 0; i += 2, j--) {
     const level = ' '.repeat(j - 1) + '#'.repeat(i) + ' '.repeat(j - 1);
+    console.log(level);
+  }
+};
+
+pyramid = n => {
+  const midpoint = Math.floor((n * 2 - 1) / 2);
+  for (let i = 0; i < n; i++) {
+    let level = '';
+    for (let j = 0; j < n * 2 - 1; j++) {
+      if (midpoint - i <= j && midpoint + i >= j) {
+        level += '#';
+      } else {
+        level += ' ';
+      }
+    }
     console.log(level);
   }
 };
