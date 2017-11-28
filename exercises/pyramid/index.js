@@ -13,9 +13,17 @@
 //       '  #  '
 //       ' ### '
 //       '#####'
+//   pyramid(4)
+//       '   #   '
+//       '  ###  '
+//       ' ##### '
+//       '#######'
 
 const pyramid = n => {
-
+  for (let i = 1, j = n; i <= (n + 2), j > 0; i += 2, j--) {
+    const level = ' '.repeat(j - 1) + '#'.repeat(i) + ' '.repeat(j - 1);
+    console.log(level);
+  }
 };
 
 module.exports = pyramid;
