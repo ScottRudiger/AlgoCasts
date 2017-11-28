@@ -15,7 +15,7 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-const matrix = n => {
+matrix = n => {
   const board = Array.from({length: n}, () => Array(n).fill(0));
   let i = j = v = 0;
   const checkSpot = (i, j) => board[i] ? board[i][j] === 0 : false;
@@ -30,6 +30,21 @@ const matrix = n => {
   while (board.some(row => row.some(v => !v))) {
     nextSpot(i, j);
     board[i][j] = v;
+  }
+  return board;
+};
+
+matrix = n => {
+  const board = Array.from({length: n}, () => Array(n).fill(0));
+  const checkSpot = (i, j) => board[i] ? board[i][j] === 0 : false;
+  let i = j = v = 0;
+  while (!board.every(row => row.every(Boolean))) {
+    if (checkSpot(i, j)) board[i][j] = v++;
+    else if (checkSpot(i, j + 1) && checkSpot(i - 1, j)) board[--i][j] = v++;
+    else if (checkSpot(i, j + 1)) board[i][++j] = v++;
+    else if (checkSpot(i + 1, j)) board[++i][j] = v++;
+    else if (checkSpot(i, j - 1)) board[i][--j] = v++;
+    else if (checkSpot(i - 1, j)) board[--i][j] = v++;
   }
   return board;
 };
