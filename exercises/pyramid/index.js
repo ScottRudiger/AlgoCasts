@@ -41,4 +41,10 @@ pyramid = n => {
   }
 };
 
+pyramid = (n, i = 1, j = n) => {
+  if (i > n * 2) return;
+  console.log(' '.repeat(j - 1) + '#'.repeat(i) + ' '.repeat(j - 1));
+  pyramid(n, i + 2, j - 1);
+};
+
 module.exports = pyramid;
