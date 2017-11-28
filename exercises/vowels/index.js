@@ -21,4 +21,6 @@ vowels = str => {
   return count;
 };
 
+vowels = str => (str.match(/[aeiou]/gi) || '').length;
+
 module.exports = vowels;
