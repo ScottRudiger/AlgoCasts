@@ -16,7 +16,22 @@
 //     [10,  9,  8, 7]]
 
 const matrix = n => {
-
+  const board = Array.from({length: n}, () => Array(n).fill(0));
+  let i = j = v = 0;
+  const checkSpot = (i, j) => board[i] ? board[i][j] === 0 : false;
+  const nextSpot = (_i, _j) => {
+    if (checkSpot(_i, _j)) { v++; }
+    else if (checkSpot(_i, _j + 1) && checkSpot(_i - 1, j)) { i--; v++ }
+    else if (checkSpot(_i, _j + 1)) { j++; v++; }
+    else if (checkSpot(_i + 1, _j)) { i++; v++; }
+    else if (checkSpot(_i, _j - 1)) { j--; v++; }
+    else if (checkSpot(_i - 1, _j)) { i--; v++; }
+  }
+  while (board.some(row => row.some(v => !v))) {
+    nextSpot(i, j);
+    board[i][j] = v;
+  }
+  return board;
 };
 
 module.exports = matrix;
