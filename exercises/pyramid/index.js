@@ -47,4 +47,19 @@ pyramid = (n, i = 1, j = n) => {
   pyramid(n, i + 2, j - 1);
 };
 
+pyramid = (n, i = 0, level = '') => {
+  if (i === n) return;
+  if (level.length === n * 2 - 1) {
+    console.log(level);
+    return pyramid(n, i + 1);
+  } else {
+    const midpoint = Math.floor((n * 2 - 1) / 2);
+    if (midpoint - i <= level.length && midpoint + i >= level.length) {
+      pyramid(n, i, level + '#');
+    } else {
+      pyramid(n, i, level + ' ');
+    }
+  }
+};
+
 module.exports = pyramid;
