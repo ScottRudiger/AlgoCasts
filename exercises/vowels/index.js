@@ -11,4 +11,14 @@ vowels = str => (str.toLowerCase().match(/a|e|i|o|u/g) || '').length;
 
 vowels = str => [...str].filter(l => 'aeiou'.includes(l.toLowerCase())).length;
 
+vowels = str => {
+  let count = 0;
+  for (const letter of str) {
+    if ('aeiou'.includes(letter.toLowerCase())) {
+      count++;
+    }
+  }
+  return count;
+};
+
 module.exports = vowels;
