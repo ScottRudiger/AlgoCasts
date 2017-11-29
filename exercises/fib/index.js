@@ -21,4 +21,10 @@ fib = (n, seq = [0, 1]) => { // linear O(n)
   return fib(n, [...seq, seq[seq.length - 1] + seq[seq.length - 2]]);
 };
 
+fib = n => { // constant O(1)
+  const phi = (Math.sqrt(5) + 1) / 2;
+  const fib = (phi ** n - (-phi) ** -n) / Math.sqrt(5);
+  return Math.ceil(fib);
+};
+
 module.exports = fib;
