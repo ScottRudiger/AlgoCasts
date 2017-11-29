@@ -16,6 +16,17 @@ fib = n => { // linear O(n)
   return seq[seq.length - 1];
 };
 
+// linear O(n) time complexity; constant O(1) space complexity
+fib = n => { // n = 4
+  let fib = 0;  // 1 1 2 3
+  let prev = 1; // 0 1 1 2
+  for (let i = 0; i < n; i++) {
+    fib += prev;
+    prev = fib - prev;
+  }
+  return fib;
+};
+
 fib = (n, seq = [0, 1]) => { // linear O(n)
   if (seq.length === n + 1) return seq.pop();
   return fib(n, [...seq, seq[seq.length - 1] + seq[seq.length - 2]]);
