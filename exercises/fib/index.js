@@ -27,4 +27,11 @@ fib = n => { // constant O(1)
   return Math.ceil(fib);
 };
 
+fib = n => { // refactor; still constant O(1) time & space
+  const phi = (Math.sqrt(5) + 1) / 2;
+  return Math.ceil(
+    (phi ** n - (-phi) ** -n) / Math.sqrt(5)
+  );
+};
+
 module.exports = fib;
