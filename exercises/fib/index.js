@@ -34,4 +34,7 @@ fib = n => { // refactor; still constant O(1) time & space
   );
 };
 
+// approximation; may not work for larger nums; constant O(1) time & space
+fib = n => Math.round(((Math.sqrt(5) + 1) / 2) ** n / Math.sqrt(5));
+
 module.exports = fib;
