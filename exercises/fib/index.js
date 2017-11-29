@@ -8,12 +8,17 @@
 // Example:
 //   fib(4) === 3
 
-const fib = n => {
+fib = n => { // linear O(n)
   const seq = [0, 1];
   while (seq.length !== n + 1) {
     seq.push(seq[seq.length - 1] + seq[seq.length - 2]);
   }
   return seq[seq.length - 1];
+};
+
+fib = (n, seq = [0, 1]) => { // linear O(n)
+  if (seq.length === n + 1) return seq.pop();
+  return fib(n, [...seq, seq[seq.length - 1] + seq[seq.length - 2]]);
 };
 
 module.exports = fib;
