@@ -27,10 +27,6 @@ fib = n => { // n = 4
   return fib;
 };
 
-fib = n => { // exponential time ~O(2^n)
-  if (n < 2) return n;
-  return fib(n - 1) + fib(n - 2);
-};
 
 fib = (n, seq = [0, 1]) => { // linear O(n)
   if (seq.length === n + 1) return seq.pop();
@@ -62,5 +58,22 @@ fib = n => {
     return memo[n];
   })(n);
 };
+
+fib = n => { // exponential time ~O(2^n)
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+};
+
+const memoize = fn => {
+  const memo = {};
+  return (...args) => {
+    if (memo[args]) return memo[args];
+    const result = fn(...args);
+    memo[args] = result;
+    return result;
+  };
+};
+
+fib = memoize(fib);
 
 module.exports = fib;
