@@ -27,6 +27,11 @@ fib = n => { // n = 4
   return fib;
 };
 
+fib = n => {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+};
+
 fib = (n, seq = [0, 1]) => { // linear O(n)
   if (seq.length === n + 1) return seq.pop();
   return fib(n, [...seq, seq[seq.length - 1] + seq[seq.length - 2]]);
