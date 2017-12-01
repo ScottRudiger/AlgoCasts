@@ -9,7 +9,15 @@
 //     q.remove(); // returns 1;
 
 class Queue {
-
+  constructor() {
+    this.storage = [];
+  }
+  add(item) {
+    this.storage.unshift(item);
+  }
+  remove() {
+    return this.storage.pop();
+  }
 }
 
 module.exports = Queue;
