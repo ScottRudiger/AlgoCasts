@@ -27,7 +27,7 @@ fib = n => { // n = 4
   return fib;
 };
 
-fib = n => {
+fib = n => { // exponential time ~O(2^n)
   if (n < 2) return n;
   return fib(n - 1) + fib(n - 2);
 };
@@ -52,5 +52,15 @@ fib = n => { // refactor; still constant O(1) time & space
 
 // approximation; may not work for larger nums; constant O(1) time & space
 fib = n => Math.round(((Math.sqrt(5) + 1) / 2) ** n / Math.sqrt(5));
+
+fib = n => {
+  const memo = [];
+  return (inner = n => {
+    if (n < 2) return n;
+    if (memo[n]) return memo[n];
+    memo[n] = inner(n - 1) + inner(n - 2);
+    return memo[n];
+  })(n);
+};
 
 module.exports = fib;
