@@ -11,7 +11,12 @@
 //   s.pop(); // returns 1
 
 class Stack {
-
+  constructor() {
+    this.storage = [];
+  }
+  push(item) {
+    this.storage.push(item);
+  }
 }
 
 module.exports = Stack;
