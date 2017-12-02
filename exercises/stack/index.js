@@ -20,6 +20,9 @@ class Stack {
   pop() {
     return this.storage.pop();
   }
+  peek() {
+    return this.storage[this.storage.length - 1];
+  }
 }
 
 module.exports = Stack;
