@@ -17,6 +17,9 @@ class Stack {
   push(item) {
     this.storage.push(item);
   }
+  pop() {
+    return this.storage.pop();
+  }
 }
 
 module.exports = Stack;
