@@ -17,35 +17,65 @@ const Stack = require('./stack');
 // adding // if any already in stack 1, move to stack 2
 // removing // if stack 1 empty, move all from stack 2 to stack 1
 
+// class Queue {
+//   constructor() {
+//     this.stack1 = new Stack();
+//     this.stack2 = new Stack();
+//   }
+//   add(item) {
+//     // if any items in stack1
+//     if (this.stack1.peek()) {
+//       // add item to stack 2
+//       this.stack2.push(item);
+//     } else {
+//       // otherwise, add to stack 1
+//       this.stack1.push(item);
+//     }
+//   }
+//   remove() {
+//     // pull item from stack 1
+//     const item = this.stack1.pop();
+//     // if none left in stack 1
+//     if (!this.stack1.peek()) {
+//       // move all from stack 2 to stack 1
+//       while (this.stack2.peek()) {
+//         this.stack1.push(this.stack2.pop());
+//       }
+//     }
+//     return item;
+//   }
+//   peek() {
+//     return this.stack1.peek();
+//   }
+// }
+
 class Queue {
   constructor() {
     this.stack1 = new Stack();
     this.stack2 = new Stack();
   }
   add(item) {
-    // if any items in stack1
-    if (this.stack1.peek()) {
-      // add item to stack 2
-      this.stack2.push(item);
-    } else {
-      // otherwise, add to stack 1
-      this.stack1.push(item);
-    }
+    this.stack1.push(item);
   }
   remove() {
-    // pull item from stack 1
-    const item = this.stack1.pop();
-    // if none left in stack 1
-    if (!this.stack1.peek()) {
-      // move all from stack 2 to stack 1
-      while (this.stack2.peek()) {
-        this.stack1.push(this.stack2.pop());
-      }
+    while (this.stack1.peek()) {
+      this.stack2.push(this.stack1.pop());
+    }
+    const item = this.stack2.pop();
+    while (this.stack2.peek()) {
+      this.stack1.push(this.stack2.pop());
     }
     return item;
   }
   peek() {
-    return this.stack1.peek();
+    while (this.stack1.peek()) {
+      this.stack2.push(this.stack1.pop());
+    }
+    const item = this.stack2.peek();
+    while (this.stack2.peek()) {
+      this.stack1.push(this.stack2.pop());
+    }
+    return item;
   }
 }
 
