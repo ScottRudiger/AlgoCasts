@@ -30,6 +30,10 @@ class LinkedList {
   getLast() {
     return this.tail;
   }
+  clear() {
+    this.head = this.tail = null;
+    this._size = 0;
+  }
 }
 
 module.exports = { Node, LinkedList };
