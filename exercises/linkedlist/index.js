@@ -84,6 +84,29 @@ class LinkedList {
     }
     else prev.next = node.next;
   }
+  insertAt(data, index) { // linear time O(n)
+    let node = new Node(data);
+    if (index === 0) {
+      node.next = this.head;
+      this.head = node;
+    } else {
+      let i = 0;
+      let curr = this.head;
+      while (i < index && curr.next) {
+        var prev = curr;
+        curr = curr.next;
+        i++;
+      }
+      if (curr === this.tail) {
+        curr.next = node;
+        this.tail = node;
+      } else {
+        prev.next = node;
+        node.next = curr;
+      }
+    }
+    this._size++;
+  }
 }
 
 module.exports = { Node, LinkedList };
