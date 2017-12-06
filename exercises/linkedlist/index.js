@@ -15,28 +15,41 @@ class LinkedList {
     this.tail = null;
     this._size = 0;
   }
-  insertFirst(data) {
+  insertFirst(data) { // constant time O(1)
     const newHead = new Node(data, this.head);
     this.head = newHead;
     this._size++
     if (!this.tail) this.tail = newHead;
   }
-  size() {
+  size() { // constant time O(1)
     return this._size;
   }
-  getFirst() {
+  getFirst() { // constant time O(1)
     return this.head;
   }
-  getLast() {
+  getLast() { // constant time O(1)
     return this.tail;
   }
-  clear() {
+  clear() { // constant time O(1)
     this.head = this.tail = null;
     this._size = 0;
   }
-  removeFirst() {
+  removeFirst() { // constant time O(1)
     this.head = this.head.next;
     this._size--;
+  }
+  removeLast() {
+    this.size() ? this._size-- : null;
+    let node = this.head;
+    if (!node || !node.next) {
+      this.head = this.tail = null;
+      return;
+    }
+    while (node.next) {
+      var beforeTail = node;
+      node = node.next;
+    }
+    this.tail = beforeTail;
   }
 }
 
