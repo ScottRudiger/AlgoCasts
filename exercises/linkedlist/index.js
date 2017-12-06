@@ -51,10 +51,20 @@ class LinkedList {
     }
     this.tail = beforeTail;
   }
-  insertLast(data) {
-    this.tail.next = new Node(data);
+  insertLast(data) { // constant time O(1)
+    const node = new Node(data);
+    if (!this.head) this.head = this.tail = node;
+    this.tail.next = node;
     this.tail = this.tail.next;
     this._size++;
+  }
+  getAt(index) { // linear time O(n)
+    let node = this.head;
+    for (let i = 0; i < index; i++) {
+      if (!node) return null;
+      node = node.next;
+    }
+    return node;
   }
 }
 
