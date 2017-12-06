@@ -38,7 +38,7 @@ class LinkedList {
     this.head = this.head.next;
     this._size--;
   }
-  removeLast() {
+  removeLast() { // linear time O(n)
     this.size() ? this._size-- : null;
     let node = this.head;
     if (!node || !node.next) {
@@ -50,6 +50,11 @@ class LinkedList {
       node = node.next;
     }
     this.tail = beforeTail;
+  }
+  insertLast(data) {
+    this.tail.next = new Node(data);
+    this.tail = this.tail.next;
+    this._size++;
   }
 }
 
