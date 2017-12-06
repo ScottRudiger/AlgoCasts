@@ -12,10 +12,15 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this._size = 0;
   }
   insertFirst(data) {
     const newHead = new Node(data, this.head);
     this.head = newHead;
+    this._size++
+  }
+  size() {
+    return this._size;
   }
 }
 
