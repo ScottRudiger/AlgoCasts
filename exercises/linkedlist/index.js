@@ -66,6 +66,24 @@ class LinkedList {
     }
     return node;
   }
+  removeAt(index) { // linear time O(n)
+    let node = this.head;
+    if (!node) return;
+    for (let i = 0; i < index; i++) {
+      var prev = node;
+      node = node.next;
+      if (!node) return;
+    }
+    if (node === this.head) {
+      this.head = this.head.next;
+      return;
+    }
+    if (node === this.tail) {
+      this.tail = prev || null;
+      if (this.tail) this.tail.next = null;
+    }
+    else prev.next = node.next;
+  }
 }
 
 module.exports = { Node, LinkedList };
