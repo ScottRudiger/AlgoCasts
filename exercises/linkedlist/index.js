@@ -107,6 +107,13 @@ class LinkedList {
     }
     this._size++;
   }
+  forEach(fn) { // linear time O(n)
+    let node = this.head;
+    while (node) {
+      fn(node);
+      node = node.next;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
