@@ -15,6 +15,13 @@ class LinkedList {
     this.tail = null;
     this._size = 0;
   }
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
+  }
   insertFirst(data) { // constant time O(1)
     const newHead = new Node(data, this.head);
     this.head = newHead;
