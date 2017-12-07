@@ -153,8 +153,7 @@ class LinkedList {
     this.head = null;
   }
   removeFirst() { // constant time O(1)
-    if (!this.head) return;
-    this.head = this.head.next;
+    this.head = this.head ? this.head.next : null;
   }
 }
 
