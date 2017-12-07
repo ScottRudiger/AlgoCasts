@@ -127,8 +127,17 @@ class LinkedList {
   constructor() {
     this.head = null;
   }
-  insertFirst(data) {
+  insertFirst(data) { // constant time O(1)
     this.head = new Node(data, this.head);
+  }
+  size() {
+    let count = 0;
+    let node = this.head;
+    while (node) {
+      count++;
+      node = node.next;
+    }
+    return count;
   }
 }
 
