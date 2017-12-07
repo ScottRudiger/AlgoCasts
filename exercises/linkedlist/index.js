@@ -142,6 +142,13 @@ class LinkedList {
   getFirst() { // constant time O(1)
     return this.head;
   }
+  getLast() { // linear time O(n)
+    let node = this.head;
+    while (node.next) {
+      node = node.next;
+    }
+    return node;
+  }
 }
 
 module.exports = { Node, LinkedList };
