@@ -155,6 +155,19 @@ class LinkedList {
   removeFirst() { // constant time O(1)
     this.head = this.head ? this.head.next : null;
   }
+  removeLast() { // linear time O(n)
+    if (!this.head) return;
+    if (!this.head.next) {
+      this.head = null;
+      return;
+    }
+    let node = this.head;
+    while (node.next) {
+      var prev = node;
+      node = node.next;
+    }
+    prev.next = null;
+  }
 }
 
 module.exports = { Node, LinkedList };
