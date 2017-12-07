@@ -130,7 +130,7 @@ class LinkedList {
   insertFirst(data) { // constant time O(1)
     this.head = new Node(data, this.head);
   }
-  size() {
+  size() { // linear time O(n)
     let count = 0;
     let node = this.head;
     while (node) {
@@ -138,6 +138,9 @@ class LinkedList {
       node = node.next;
     }
     return count;
+  }
+  getFirst() { // constant time O(1)
+    return this.head;
   }
 }
 
