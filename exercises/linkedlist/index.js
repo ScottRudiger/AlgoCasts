@@ -153,9 +153,8 @@ class LinkedList {
     this.head = null;
   }
   removeFirst() { // constant time O(1)
-    const node = this.head;
-    this.head = node.next;
-    return node;
+    if (!this.head) return;
+    this.head = this.head.next;
   }
 }
 
