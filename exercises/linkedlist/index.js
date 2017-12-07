@@ -184,6 +184,12 @@ class LinkedList {
     }
     return null;
   }
+  removeAt(index) {
+    if (!this.head) return;
+    if (index === 0) return this.removeFirst();
+    const prev = this.getAt(index - 1);
+    prev.next ? prev.next = prev.next.next ? prev.next.next : null : null;
+  }
 }
 
 module.exports = { Node, LinkedList };
