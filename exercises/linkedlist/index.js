@@ -149,8 +149,13 @@ class LinkedList {
     }
     return node;
   }
-  clear() {
+  clear() { // constant time O(1)
     this.head = null;
+  }
+  removeFirst() { // constant time O(1)
+    const node = this.head;
+    this.head = node.next;
+    return node;
   }
 }
 
