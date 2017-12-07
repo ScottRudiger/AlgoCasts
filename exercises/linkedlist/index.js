@@ -169,8 +169,9 @@ class LinkedList {
     prev.next = null;
   }
   insertLast(data) { // linear time O(n) - due to getLast
-    if (!this.head) return;
-    this.getLast().next = new Node(data);
+    const node = new Node(data);
+    const prev = this.getLast();
+    prev ? prev.next = node : this.head = node;
   }
 }
 
