@@ -168,6 +168,10 @@ class LinkedList {
     }
     prev.next = null;
   }
+  insertLast(data) { // linear time O(n) - due to getLast
+    if (!this.head) return;
+    this.getLast().next = new Node(data);
+  }
 }
 
 module.exports = { Node, LinkedList };
