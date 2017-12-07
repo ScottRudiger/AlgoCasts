@@ -143,6 +143,7 @@ class LinkedList {
     return this.head;
   }
   getLast() { // linear time O(n)
+    if (!this.head) return null;
     let node = this.head;
     while (node.next) {
       node = node.next;
