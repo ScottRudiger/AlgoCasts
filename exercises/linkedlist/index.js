@@ -188,7 +188,8 @@ class LinkedList {
     if (!this.head) return;
     if (index === 0) return this.removeFirst();
     const prev = this.getAt(index - 1);
-    prev.next ? prev.next = prev.next.next ? prev.next.next : null : null;
+    if (!prev || !prev.next) return;
+    prev.next = prev.next.next;
   }
 }
 
