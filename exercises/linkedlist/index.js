@@ -140,7 +140,7 @@ class LinkedList {
     return count;
   }
   getFirst() { // constant time O(1)
-    return this.head;
+    return this.getAt(0);
   }
   getLast() { // linear time O(n)
     if (!this.head) return null;
@@ -191,7 +191,7 @@ class LinkedList {
     if (!prev || !prev.next) return;
     prev.next = prev.next.next;
   }
-  insertAt(data, index) {
+  insertAt(data, index) { // linear time O(n)
     if (!index) return this.insertFirst(data);
     let node = this.head;
     let i = 0;
