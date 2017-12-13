@@ -202,6 +202,15 @@ class LinkedList {
     }
     prev.next = new Node(data, node);
   }
+  forEach(fn, index) { // linear time O(n)
+    let node = this.head;
+    let i = 0;
+    while (node) {
+      fn(node, i);
+      node = node.next;
+      i++;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
