@@ -13,7 +13,13 @@
 //   circular(l) // true
 
 const circular = list => {
-
+  let slow = fast = list.head;
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) return true;
+  }
+  return false;
 };
 
 module.exports = circular;
