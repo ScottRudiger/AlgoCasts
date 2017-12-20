@@ -14,7 +14,7 @@
 
 const circular = list => {
   let slow = fast = list.head;
-  while (fast.next) {
+  while (fast.next && fast.next.next) {
     slow = slow.next;
     fast = fast.next.next;
     if (slow === fast) return true;
