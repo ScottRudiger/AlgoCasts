@@ -48,3 +48,34 @@ test('circular detects non-circular linked lists', () => {
 
   expect(circular(l)).toEqual(false);
 });
+
+test('circular detects circular linked list of even length', () => {
+  const l = new List();
+  const a = new Node('a');
+  const b = new Node('b');
+  const c = new Node('c');
+  const d = new Node('d');
+
+  l.head = a;
+  a.next = b;
+  b.next = c;
+  c.next = d;
+  d.next = c;
+
+  expect(circular(l)).toEqual(true);
+});
+
+test('circular detects non-circular linked list of even length', () => {
+  const l = new List();
+  const a = new Node('a');
+  const b = new Node('b');
+  const c = new Node('c');
+  const d = new Node('d');
+
+  l.head = a;
+  a.next = b;
+  b.next = c;
+  c.next = d;
+
+  expect(circular(l)).toEqual(false);
+});
