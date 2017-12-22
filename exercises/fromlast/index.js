@@ -12,7 +12,13 @@
 //    fromLast(list, 2).data // 'b'
 
 const fromLast = (list, n) => {
-
+  let slow = fast = list.head;
+  let i = 0;
+  while (fast.next) {
+    fast = fast.next;
+    if (!(++i % n)) slow = slow.next;
+  }
+  return slow;
 };
 
 module.exports = fromLast;
