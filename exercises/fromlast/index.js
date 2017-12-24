@@ -13,10 +13,11 @@
 
 const fromLast = (list, n) => {
   let slow = fast = list.head;
-  let i = 0;
-  while (fast.next) {
+  for (let i = 0; i < n; i++)
     fast = fast.next;
-    if (!(++i % n)) slow = slow.next;
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
   }
   return slow;
 };
