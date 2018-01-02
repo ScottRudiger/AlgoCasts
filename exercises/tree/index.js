@@ -11,7 +11,19 @@
 // function that gets called with each element in the tree
 
 class Node {
-
+  constructor(data) {
+    this.data = data;
+    this.children = [];
+  }
+  add(data) {
+    this.children.push(new Node(data));
+  }
+  remove(data) { // naive to remove only based on data and not unique id, nonetheless:
+    this.children.forEach((node, i) => {
+      if (node.data === data)
+        this.children.splice(i, 1);
+    });
+  }
 }
 
 class Tree {
