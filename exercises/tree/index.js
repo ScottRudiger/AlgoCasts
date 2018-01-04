@@ -24,7 +24,15 @@ class Node {
 }
 
 class Tree {
-
+  constructor() {
+    this.root = null;
+  }
+  traverseDF(fn) {
+    (function inner(node) {
+      fn(node);
+      node.children.forEach(node => inner(node));
+    })(this.root);
+  }
 }
 
 module.exports = { Tree, Node };
