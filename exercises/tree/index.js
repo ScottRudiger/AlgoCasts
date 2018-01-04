@@ -27,6 +27,13 @@ class Tree {
   constructor() {
     this.root = null;
   }
+  traverseBF(fn) {
+    fn(this.root);
+    (function inner(node) {
+      node.children.forEach(node => fn(node));
+      node.children.forEach(node => inner(node));
+    })(this.root);
+  }
   traverseDF(fn) {
     (function inner(node) {
       fn(node);
