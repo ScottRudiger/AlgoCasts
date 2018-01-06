@@ -37,8 +37,7 @@ class Tree {
   // }
 
   traverseBF(fn) {
-    const processQueue = [];
-    processQueue.push(this.root);
+    const processQueue = [this.root];
     while (processQueue.length) {
       const node = processQueue.shift();
       processQueue.push(...node.children);
