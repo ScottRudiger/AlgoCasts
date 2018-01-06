@@ -27,13 +27,25 @@ class Tree {
   constructor() {
     this.root = null;
   }
+
+  // traverseBF(fn) {
+  //   fn(this.root);
+  //   (function inner(node) {
+  //     node.children.forEach(node => fn(node));
+  //     node.children.forEach(node => inner(node));
+  //   })(this.root);
+  // }
+
   traverseBF(fn) {
-    fn(this.root);
-    (function inner(node) {
-      node.children.forEach(node => fn(node));
-      node.children.forEach(node => inner(node));
-    })(this.root);
+    const processQueue = [];
+    processQueue.push(this.root);
+    while (processQueue.length) {
+      const node = processQueue.shift();
+      processQueue.push(...node.children);
+      fn(node);
+    }
   }
+
   traverseDF(fn) {
     (function inner(node) {
       fn(node);
