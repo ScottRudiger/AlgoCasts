@@ -45,11 +45,20 @@ class Tree {
     }
   }
 
+  // traverseDF(fn) {
+  //   (function inner(node) {
+  //     fn(node);
+  //     node.children.forEach(node => inner(node));
+  //   })(this.root);
+  // }
+
   traverseDF(fn) {
-    (function inner(node) {
+    const processQueue = [this.root];
+    while (processQueue.length) {
+      const node = processQueue.shift();
+      processQueue.unshift(...node.children);
       fn(node);
-      node.children.forEach(node => inner(node));
-    })(this.root);
+    }
   }
 }
 
