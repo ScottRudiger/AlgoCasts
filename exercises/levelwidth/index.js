@@ -12,7 +12,13 @@
 // Answer: [1, 3, 2]
 
 const levelWidth = root => {
-
+  const levels = [];
+  let level = [root];
+  while (level.length) {
+    levels.push(level.length);
+    level = level.reduce((children, node) => [...children, ...node.children], []);
+  }
+  return levels;
 };
 
 module.exports = levelWidth;
