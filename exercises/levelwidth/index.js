@@ -13,9 +13,13 @@
 
 const levelWidth = root => {
   const levels = [];
+  // initialize collection of nodes at each level (top level will always be 1--root)
   let level = [root];
+  // for each level
   while (level.length) {
+    // add that level's length to levels
     levels.push(level.length);
+    // reset level to level's children (i.e., empty level and replace it with all children of nodes at this level)
     level = level.reduce((children, node) => [...children, ...node.children], []);
   }
   return levels;
